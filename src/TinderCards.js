@@ -27,7 +27,7 @@ const TinderCards = () => {
 
   return (
     <div className='tinderCards'>
-        <div>
+        <div className='tinderCards__cardContainer'>
             {people.map((person) => (
                 <TinderCard 
                     className='swipe'
@@ -36,7 +36,12 @@ const TinderCards = () => {
                     onSwipe={(dir) => swiped(dir, person.name)}
                     onCardLeftScreen={() => outOfFrame(person.name)}
                 >
-
+                    <div 
+                        style={{ backgroundImage: `url(${person.url})`}}
+                        className='card'
+                    >
+                        <h3>{person.name}</h3>
+                    </div>
                 </TinderCard>
             ))}
       </div>
